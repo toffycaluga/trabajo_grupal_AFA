@@ -157,15 +157,15 @@ let lista=[];
             
                 return indice;
             }else{
-              alert("no existe elemento")
+                alert("no existe elemento")
             }  
             }
-      function modificar(){
+    function modificar(){
         lista[buscar()].cantidad=document.getElementById('ncant').value;
         mostrar();
-      }
-      async function getDescuento(){
-          
+    }
+    async function getDescuento(){
+    
             let promesa=new Promise(function(resolve){
                 let req=new XMLHttpRequest();
                 req.open('GET','descuento.html');
@@ -179,31 +179,31 @@ let lista=[];
                 req.send();
             });
             return document.getElementById('descuento').innerHTML=await promesa;
-          
+        
         }
-      function descuento(){
+    function descuento(){
         let desc=parseInt(document.getElementById('desc').value);
         let sumaiva=0;
 			let sumatotal=0;
 			let neto=0;
-      let tdesc=0;
+        let tdesc=0;
 
 			for (var i = 0; i <lista.length; i++) {
 				sumaiva+=lista[i].ivva();
 				sumatotal+=lista[i].total();
 			}
-      neto=sumatotal+sumaiva;
-      tdesc=neto*(desc/100);
-      let tf=neto-tdesc;
-      let text="<table class='table table-striped'>";
-      text+="<tr><td>descuento del "+desc+"%</td><td>$"+tdesc+"</td></tr>";
-      text+="<tr><td>total final:</td><td>$"+tf+"</td></tr>";
-      text+="</table>"
-      document.getElementById('totald').innerHTML=text;
+        neto=sumatotal+sumaiva;
+        tdesc=neto*(desc/100);
+        let tf=neto-tdesc;
+        let text="<table class='table table-striped'>";
+        text+="<tr><td>descuento del "+desc+"%</td><td>$"+tdesc+"</td></tr>";
+        text+="<tr><td>total final:</td><td>$"+tf+"</td></tr>";
+        text+="</table>"
+        document.getElementById('totald').innerHTML=text;
 
-      }
+    }
 
-      function iva(){
+    function iva(){
         mostrar();
 			obj.prototype.ivva=function(){
 				let monto=this.total()*0.19;
@@ -217,15 +217,15 @@ let lista=[];
 				sumatotal+=lista[i].total();
 			}
 			neto=sumatotal+sumaiva;
-      let txt="<table class='table table-striped' border='1'>"
+            let txt="<table class='table table-striped' border='1'>"
 			txt+="<tr><td>Bruto: </td><td>$"+sumatotal+"</td><tr>";
 			txt+="<tr><td>IVA: </td><td>$"+sumaiva+"</td><tr>";
 			txt+="<tr><td>Total: </td><td>$"+neto+"</td><tr>";
-      txt+="</table>"
+            txt+="</table>"
 			document.getElementById('iva').innerHTML=txt;
 		}
     
-  function mostrar(){
+    function mostrar(){
 			let contenido="<table border='1' class='table table-bordered table-striped'>";
 			contenido+="<tr><td>nombre</td><td>cantidad</td><td>valor UN</td><td>total</td></tr>";
 			for (var i = 0; i <lista.length; i++) {
@@ -235,8 +235,8 @@ let lista=[];
 							"</td><td>"+lista[i].total()+
 							"</td></tr>";
 			}
-      contenido+="</table>";
+            contenido+="</table>";
 			document.getElementById('muestra').innerHTML=contenido;
-      
+
 	
 		}
