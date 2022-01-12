@@ -1,4 +1,4 @@
-let lista=[];
+let lista=[];//en este archivo se crean todas las funciones a utilizar
       let indice=0;
 		function LlenarSelect(){
       select = document.getElementById("producto");
